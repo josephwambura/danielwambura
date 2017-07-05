@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Donation Page";
+}
+
+<div class="container-fluid bg-4 text-center">
+    <h2 class="margin">@ViewData["Title"].</h2>
+    <h3 class="margin">@ViewData["Message"]</h3>
+
+    <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Bid Daniel Mburu Farewell</h1>
+                </div>
+                <div class="panel-body">
+                    <img src="~/images/edited/daniel_head_icon.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Dawa" width="350" height="350">
+                    <p style="color:black;"><strong>Rest in Peace</strong> Mr. Mburu</p>
+                </div>
+                <div class="panel-footer" style="color:black;">
+                    <input value="Kes." disabled="disabled" id="country_currency" />
+                    <input placeholder="Basic Amount" id="amount"/>
+                    <input value="+254" disabled="disabled" id="country_code" />
+                    <input placeholder="Phone Number" id="phone_number"/>
+                    <button class="btn btn-lg" title="Confirm to send the amount from your M-Pesa account, please input the correct service PIN">Confirm</button>
+                </div>
+                <div class="panel-footer" style="color:black;">
+                    <input value="Pay Bill Number: 733104" disabled="disabled" id="country_currency" />
+                </div>
+            </div>
+</div>

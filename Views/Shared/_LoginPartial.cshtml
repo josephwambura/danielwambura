@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DanielWambura.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-area="" asp-controller="Account" asp-action="LogOut" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <div class="dropdown">
+                    <button class="btn btn-link navbar-btn navbar-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @UserManager.GetUserName(User)
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu makau" aria-labelledby="dropdownMenu2">
+                        <li>
+                            <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Welcome @UserManager.GetUserName(User)!</a>
+                        </li>
+                        <li>
+                            <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li><a asp-area="" asp-controller="Home" asp-action="Index"><span title="Translate dmw.co.ke" class="glyphicon glyphicon-globe logo" style="font-size: 30px;"></span></a></li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+
+        <li>
+            <div class="dropdown">
+                <button class="btn btn-link navbar-btn navbar-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu makau" aria-labelledby="dropdownMenu2">
+                    <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index"><span title="Translate dmw.co.ke" class="glyphicon glyphicon-globe logo" style="font-size: 30px;"></span></a></li>
+    </ul>
+}

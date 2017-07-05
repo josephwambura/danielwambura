@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+
+<!--<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>-->
+
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-4">
+    <h2 class="text-center margin">@ViewData["Title"].</h2>
+    <h3>@ViewData["Message"]</h3>
+    <div class="row">
+        <div class="col-sm-5">
+            <p>Reach us, we will respond asap.</p>
+            <address>
+                <p><span class="glyphicon glyphicon-map-marker"></span> Mununga, Kigio sub-location, Gatanga Location</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +254 726 877 526</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +254 713 543 141</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:githithudanjsef@hotmail.com">githithudanjsef@hotmail.com</a></p>
+                <p><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:peterwanjohi@gmail.com">peterwanjohi@gmail.com</a></p>
+            </address>
+        </div>
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <button class="btn btn-default pull-right" type="submit">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
