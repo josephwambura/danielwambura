@@ -22,7 +22,9 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"
+        asp-fallback-href="~/css/w3.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
     </environment>
 </head>
