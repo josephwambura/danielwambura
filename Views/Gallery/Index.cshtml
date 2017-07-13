@@ -1,3 +1,4 @@
+@model DanielWambura.Models.DawaViewModels.DawaImageIndex
 @{
     ViewData["Title"] = "Gallery Page";
 }
@@ -8,89 +9,47 @@
     <h3>@ViewData["Message"]</h3>
 
     <p>The ceremony video</p>
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
-        </div>
-
-    <!-- Photo Grid -->
-    <!--<div class="w3-row">
-        <div class="w3-half">
-        <img src="~/images/edited/ls/_joseph.jpg" title="DMW with son Joseph Githithu" style="width:100%">
-        <img src="~/images/edited/ls/_grandies.jpg" title="DMW with son and grandchildren" style="width:100%">
-        <img src="~/images/edited/ls/_sons.jpg" title="DMW with sons Peter and Moses" style="width:100%">
-        </div>
-
-        <div class="w3-half">
-        <img src="~/images/edited/ls/_moses.jpg" title="DMW at Moses' funeral" style="width:100%">
-        <img src="~/images/edited/pt/_brother_mother.jpg" title="DMW with brother Kabuki and mother Njeri" style="width:100%">
-        </div>
-    </div>-->
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <a href="~/images/edited/ls/_sons.jpg" target="_blank">
-                <img src="~/images/edited/ls/_sons.jpg" class="img-responsive" alt="Fjords" style="width:100%">
-                <div class="caption">
-                    <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <a href="~/images/edited/ls/_joseph.jpg" target="_blank">
-                <img src="~/images/edited/ls/_joseph.jpg" class="img-responsive" alt="Lights" style="width:100%">
-                <div class="caption">
-                    <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <a href="~/images/edited/ls/_grandies.jpg" target="_blank">
-                <img src="~/images/edited/ls/_grandies.jpg" class="img-responsive" alt="Nature" style="width:100%">
-                <div class="caption">
-                    <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                </div>
-                </a>
-            </div>
-        </div>
+    <div class="embed-responsive embed-responsive-16by9">
+        @*This video is not mine, uses the link to try out. The owner owns the copyright, so use your own video.*@
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-        <div class="thumbnail">
-            <a href="~/images/edited/ls/_joseph.jpg" target="_blank">
-            <img src="~/images/edited/ls/_joseph.jpg" class="img-responsive" alt="Lights" style="width:100%">
-            <div class="caption">
-                <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-            </div>
-            </a>
+    <section class="dmw-gallery-filters">
+        <div class="container">
+            <form asp-action="Index" asp-controller="Gallery" method="post">
+                <label class="dmw-gallery-label" data-title="family type">
+                    <select asp-for="@Model.BrandFilterApplied" asp-items="@Model.Brands" class="dmw-gallery-filter"></select>
+                </label>
+                <label class="dmw-gallery-label" data-title="gender">
+                    <select asp-for="@Model.TypesFilterApplied" asp-items="@Model.Types" class="dmw-gallery-filter"></select>
+                </label>
+                <input class="dmw-gallery-send" type="image" src="images/arrow-right.svg" />
+            </form>
         </div>
-        </div>
-        <div class="col-md-4">
-        <div class="thumbnail">
-            <a href="~/images/edited/ls/_grandies.jpg" target="_blank">
-            <img src="~/images/edited/ls/_grandies.jpg" class="img-responsive" alt="Nature" style="width:100%">
-            <div class="caption">
-                <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-            </div>
-            </a>
-        </div>
-        </div>
-        <div class="col-md-4">
-        <div class="thumbnail">
-            <a href="~/images/edited/ls/_sons.jpg" target="_blank">
-            <img src="~/images/edited/ls/_sons.jpg" class="img-responsive" alt="Fjords" style="width:100%">
-            <div class="caption">
-                <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-            </div>
-            </a>
-        </div>
-        </div>
-    </div>
-</div>
+    </section>
 
+    <div class="container">
+
+        @if (Model.DawaImageItems.Any())
+        {
+            @Html.Partial("_Pagination", Model.PaginationInfo)
+
+            <div class="dmw-gallery-items row">
+                @foreach (var dawaImageItem in Model.DawaImageItems)
+                {
+                    <div class="dmw-gallery-item col-md-4">
+                        @Html.Partial("_FamIm", dawaImageItem)
+                    </div>
+                }
+            </div>
+
+            @Html.Partial("_Pagination", Model.PaginationInfo)
+        }
+        else
+        {
+            <div class="dmw-gallery-items row">
+                THERE ARE NO RESULTS THAT MATCH YOUR SEARCH
+            </div>
+        }
+    </div>
 </div>

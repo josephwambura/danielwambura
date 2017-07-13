@@ -1,0 +1,34 @@
+﻿.dmw-pager-wrapper {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.dmw-pager-item {
+    margin: 0 5vw;
+}
+
+.dmw-pager-item--navigable {
+    display: inline-block;
+    cursor: pointer;
+}
+
+    .dmw-pager-item--navigable.is-disabled {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .dmw-pager-item--navigable:hover {
+        color: #83D01B;
+    }
+
+@media screen and (max-width: 1280px) {
+    .dmw-pager-item {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .dmw-pager-item {
+        margin: 0 4vw;
+    }
+}

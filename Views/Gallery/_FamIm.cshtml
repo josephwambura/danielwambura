@@ -1,0 +1,28 @@
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model DanielWambura.Models.Entities.DawaImageItem
+
+<form asp-controller="Favorite" asp-action="AddToFav">
+    <img class="dmw-gallery-thumbnail" src="@Model.PictureUri" />
+    <input class="dmw-gallery-button @((!User.Identity.IsAuthenticated) ? "is-disabled" : "")" type="submit" value="[ FAVORITE ]" />
+
+    <div class="dmw-gallery-name">
+        <span>@Model.Name</span>
+    </div>
+    <div class="dmw-gallery-datetaken">
+        <span>@Model.DateTaken.ToString()</span>
+    </div>
+    <input type="hidden" asp-for="@Model.DawaImageBrand" name="brand" />
+    <input type="hidden" asp-for="@Model.DawaImageBrandId" name="brandId" />
+    <input type="hidden" asp-for="@Model.DawaImageType" name="type" />
+    <input type="hidden" asp-for="@Model.DawaImageTypeId" name="typeId" />
+    <input type="hidden" asp-for="@Model.Description" name="description" />
+    <input type="hidden" asp-for="@Model.Id" name="id" />
+    <input type="hidden" asp-for="@Model.Name" name="name" />
+    <input type="hidden" asp-for="@Model.PictureUri" name="pictureUri" />
+    <input type="hidden" asp-for="@Model.DateTaken" name="dateTaken" />
+</form>
