@@ -286,8 +286,3 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
-
-#The app settings
-*.json
-appsettings.json
-appsettings.Development.json
